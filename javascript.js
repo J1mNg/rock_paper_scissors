@@ -27,11 +27,13 @@ function playRound(playerInput, computerInput) {
 function updateScores(result) {
   if (result == "win") {
     playerScore += 1;
-    document.getElementById("player-score").innerHTML = playerScore
+    document.getElementById("player-score").innerHTML = playerScore;
   } else if (result == "loss") {
-    computerScore += 1
-    document.getElementById("computer-score").innerHTML = computerScore
-  }
+    computerScore += 1;
+    document.getElementById("computer-score").innerHTML = computerScore;
+  };
+
+  
 };
 
 
@@ -53,11 +55,11 @@ function updateBoard(playerInput, computerInput) {
 };
 
 function gameEnd(totalGames) {
-  if (games == totalGames) {
-    return 1
+  if (playerScore == totalGames) {
+    alert("you are the winner!")
+  } else if (computerScore == totalGames) {
+    alert("you lose!")
   }
-  
-  games += 1
 
   return 0
 };
@@ -84,14 +86,6 @@ buttons.forEach((button) => {
     updateBoard(playerInput, computerInput)
 
     let gameEndStatus = gameEnd(5)
-
-    if (gameEndStatus == 1) {
-      if (playerScore > computerScore) {
-        alert("you are the winner!")
-      } else {
-        alert("you lose!")
-      }
-    }
 
   });  
 });
